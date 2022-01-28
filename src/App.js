@@ -1,23 +1,29 @@
 import logo from "./logo.svg";
 import "./App.css";
 import PlugConnect from "@psychedelic/plug-connect";
-
+import Balance from "./Components/Balance";
+import { StrictMode } from "react";
+import { Fragment } from "react";
 function App() {
   async function getBalance() {
     let balance = await window.ic.plug.requestBalance();
-    console.log(balance);
+    balance.forEach((token) => {
+      if (token["name"] == "ICP") {
+        console.log(" Balance for ICP : ", token["amount"]);
+      }
+    });
   }
 
-  const network = "";
-  const whitelist = "";
   return (
-    <PlugConnect
-      dark
-      title="Connect To Plug"
-      // host={network}
-      // whitelist={whitelist}
-      onConnectCallback={getBalance}
-    />
+    <Fragment>
+      <PlugConnect
+        dark
+        title="Connect To Plug"
+        // host={network}
+        // whitelist={whitelist}
+        onConnectCallback={getBalance}
+      />
+    </Fragment>
   );
 }
 
