@@ -5,13 +5,17 @@ import Balance from "./Components/Balance";
 import { StrictMode } from "react";
 import { Fragment } from "react";
 function App() {
+  // Returns Balance and Wallet Address
   async function getBalance() {
+    // Gets Balance of all the tokens in wallet
     let balance = await window.ic.plug.requestBalance();
     for (let i = 0; i < balance.length; i++) {
+      // Finds the ICP Account and returns it balance
       if (balance[i]["name"] == "ICP") {
         console.log(" Balance for ICP : ", balance[i]["amount"]);
-        let agent;
-        agent = await window.ic.plug.createAgent();
+        // Create an agent
+        await window.ic.plug.createAgent();
+        // Get agent Wallet ID
         let id = await window.ic.plug.agent.getPrincipal();
         console.log(id.toText());
       }
