@@ -28,6 +28,8 @@ class Button extends React.Component {
   render() {
     const wallet = this.state.wallet;
     let content;
+
+    // If Not Connected then preview the connect button
     if (wallet == "Not Connected") {
       content = (
         <PlugConnect
@@ -36,7 +38,9 @@ class Button extends React.Component {
           onConnectCallback={this.getBalance}
         />
       );
-    } else {
+    }
+    // Else the wallet address and ICP balance
+    else {
       content = (
         <div>
           <p>Wallet = {this.state.wallet}</p>
