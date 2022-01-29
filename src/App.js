@@ -7,11 +7,16 @@ import { Fragment } from "react";
 function App() {
   async function getBalance() {
     let balance = await window.ic.plug.requestBalance();
-    balance.forEach((token) => {
-      if (token["name"] == "ICP") {
-        console.log(" Balance for ICP : ", token["amount"]);
+    for (let i = 0; i < balance.length; i++) {
+      if (balance[i]["name"] == "ICP") {
+        console.log(" Balance for ICP : ", balance[i]["amount"]);
+        let agent;
+        agent = await window.ic.plug.createAgent();
+        let id = await window.ic.plug.agent.getPrincipal();
+        console.log(id.toText());
       }
-    });
+    }
+    balance.forEach((token) => {});
   }
 
   return (
@@ -19,8 +24,6 @@ function App() {
       <PlugConnect
         dark
         title="Connect To Plug"
-        // host={network}
-        // whitelist={whitelist}
         onConnectCallback={getBalance}
       />
     </Fragment>
