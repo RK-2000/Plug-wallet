@@ -1,10 +1,12 @@
 import "./App.css";
 import { Fragment } from "react";
-import Button from "./Components/Button";
+import PlugWallet from "./Components/PlugWallet";
+import EarthWallet from "./Components/EarthWallet";
+import Account from "./Components/Account";
 function App() {
   return (
     <Fragment>
-      <Button />
+      <Account />
     </Fragment>
   );
 }
