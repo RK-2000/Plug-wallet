@@ -8,8 +8,8 @@ class ICPverse extends React.Component{
                 <div className="container">
                     <img src={logo} alt="" />
                     <div className="socialIcons">
-                    <a className="socialIcon" href="#"><i className="fab fa-discord"></i></a>
-                    <a className="socialIcon" href="#"><i className="fab fa-twitter"></i></a>
+                    {/* <a className="socialIcon" href="#"><i className="fab fa-discord"></i></a>
+                    <a className="socialIcon" href="#"><i className="fab fa-twitter"></i></a> */}
                     </div>
                     <img src={comming_soon} alt="" />
                 </div>
