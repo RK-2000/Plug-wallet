@@ -18,7 +18,7 @@ class PlugWallet extends React.Component {
         // Get agent Wallet ID
         let id = await window.ic.plug.agent.getPrincipal();
         const details = [id.toText(), balance[i]["amount"], "plug"];
-        this.props.setAccountDetails(details);
+        console.log(details);
       }
     }
   };
